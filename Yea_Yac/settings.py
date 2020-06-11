@@ -43,8 +43,6 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     'apis',
-
-    'accounts',
 ]
 
 MIDDLEWARE = [

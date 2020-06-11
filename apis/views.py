@@ -5,6 +5,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.core.validators import validate_email, ValidationError
+from django.contrib.auth import authenticate, login
 
 
 class BaseView(View):
@@ -50,3 +51,22 @@ class UserCreateView(BaseView):
             return self.response(message="이미 존재하는 아이디입니다. 새로 만들어주세요.", status=400)
 
         return self.response({'user.id': user.id})
+
+
+class UserLoginView(BaseView):
+    def post(self, request):
+        email = request.POST.get('email', '')
+        if not email:
+            return self.response(message="email을 입력해주세요", status=400)
+
+        password = request.POST.get('password', '')
+        if not password:
+            return self.response(message="비밀번호를 입력해주세요.", status=400)
+
+        user = authenticate(request, email=email, password=password) # authenticate() 는 값이 들어오지않으면 None값을 반환한다.
+        if user is None:
+            return self.response(message="입력정보를 확인해주세요", status=400)
+
+        login(request, user)
+
+        return self.response

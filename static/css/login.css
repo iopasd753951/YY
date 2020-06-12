@@ -1,6 +1,6 @@
 @font-face {
     font-family: "1훈하얀고양이 R";
-    src: url("HoonWhitecatR.ttf") format('truetype');
+    src: url("/static/font/HoonWhitecatR.ttf") format('truetype');
 }
 
 * {
@@ -42,7 +42,7 @@ button {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 320px 0
+    padding: 250px 0
 }
 
 .square {

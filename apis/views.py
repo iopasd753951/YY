@@ -20,10 +20,10 @@ class BaseView(View):
         return JsonResponse(result, status)
 
 
-class UserCreateView(BaseView):
+class UserSignupView(BaseView):
     @method_decorator(csrf_exempt) # ajax 통신시(POST요청) CSRF 토큰요구로 에러가 발생하는데 그것을 우회함
     def dispatch(self, request, *args, **kwargs):
-        return super(UserCreateView, self).dispatch(request, *args, **kwargs)
+        return super(UserSignupView, self).dispatch(request, *args, **kwargs)
 
     def post(self, request):
 

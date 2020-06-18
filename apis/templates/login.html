@@ -6,7 +6,7 @@
     <div class="container">
         <div class="square"></div>
         <div class="login-block">
-            <p style="font-size:160%;"> 예? 약! 로그인 페이지 입니다. <a href="http://127.0.0.1:8000/apis/v1/users/create"> 아직 회원이 아니신가요?</a> </p>
+            <p style="font-size:160%;"> 예? 약! 로그인 페이지 입니다. <a style="float: right" href="{% url 'signup' %}"> 아직 회원이 아니신가요?</a> </p>
            <input id="email" name="email" placeholder="이메일">
             <input id="password" name="password" type="password" placeholder="비밀번호">
             <button id="login" type="submit"> 다음 </button>

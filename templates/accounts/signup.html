@@ -1,0 +1,53 @@
+{% extends "accounts/base.html" %}
+
+{% block body %}
+
+{{ request.user }}
+    <div class="container">
+        <div class="square"></div>
+        <div class="signup-block">
+            <p style="font-size:160%;"> 예? 약! 회원가입 페이지 입니다. <a style="float: right" href="{% url 'login' %}"> 이미 회원이신가요?</a> </p>
+           <input id="email" name="email" placeholder="이메일">
+            <input id="name" name="name" placeholder="이름">
+            <input id="password" name="password" type="password" placeholder="비밀번호(최소 5글자 이상)">
+            <input id="passwordConfirm" type="password" placeholder="비밀번혼 확인">
+            <span id="error"></span>
+            <input id="phone" name="phone" placeholder="휴대폰번호('-' 제외)">
+            <button id="signup" type="submit"> 다음 </button>
+
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js">
+</script>
+{% csrf_token %}
+<script>
+
+    $(document).ready(function () {
+        $('#signup').click(function () {
+
+            function success(data) {
+                location.reload();
+            }
+
+            $.ajax({
+              type: "POST",
+              url: '/account/v1/signup',
+              data: JSON.stringify({'email': $('#email').val(), 'name': $('#name').val(),'password': $('#password').val() , 'phone': $('#phone').val()}),
+              success: success,
+              dataType: "json"
+            }).fail(data => {
+                alert(JSON.data);
+                console.log(data)
+            });
+        });
+
+        $('#passwordConfirm').change(function (e) {
+            if($('#password').val() !== e.target.value) {
+                $('#error').html('비밀번호 불일치');
+            }
+        })
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "accounts/base.html" %}
+
+{% block body %}
+
+{{ request.user }}
+    {% csrf_token %}
+    <div class="container">
+        <div class="square"></div>
+        <div class="login-block">
+            <p style="font-size:160%;"> 예? 약! 로그인 페이지 입니다. <a style="float: right" href="{% url 'signup' %}"> 아직 회원이 아니신가요?</a> </p>
+           <input id="email" name="email" placeholder="이메일">
+            <input id="password" name="password" type="password" placeholder="비밀번호">
+            <button id="login" type="submit"> 다음 </button>
+
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#login').click(function () {
+
+            function success(data) {
+                location.reload();
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '/account/v1/login',
+                data: JSON.stringify({
+                    'email': $('#email').val(),
+                    'name': $('#name').val(),
+                    'password': $('#password').val(),
+                    'phone': $('#phone').val()
+                }),
+                success: success,
+                dataType: "json"
+            }).fail(data => {
+                alert(JSON.data);
+                console.log(data)
+            });
+        });
+    });
+</script>
+
+{% endblock %}

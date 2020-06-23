@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "1훈하얀고양이 R";
+    src: url("/static/font/HoonWhitecatR.ttf") format('truetype');
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: "1훈하얀고양이 R";
+    overflow-x: hidden;
+}
+
+
+input {
+    font-family: "1훈하얀고양이 R";
+    width: 450px;
+    height: 50px;
+    font-size: 40px;
+    color: #707070;
+    border: solid 1px #707070;
+    margin-bottom: 10px;
+}
+
+
+button {
+    font-family: "1훈하얀고양이 R";
+    width: 450px;
+    height: 60px;
+    background: #C622DB;
+    font-size: 40px;
+    border: solid 1px #707070;
+    color: white;
+    margin-top: 5px;
+}
+
+
+.signup-block {
+    width: 450px;
+    margin: 0 auto;
+}
+
+#error {
+    color: red;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 250px 0
+}
+
+
+.square {
+    width: 163px;
+    height: 163px;
+    background-color: #C622DB;
+    position: absolute;
+    top: -81.5px;
+    left: -81.5px;
+    transform: rotate(-45deg);
+}

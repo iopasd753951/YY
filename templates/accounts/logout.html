@@ -1,15 +1,14 @@
 {% extends "accounts/base.html" %}
 
 {% block body %}
-<h1> 예? 약! 기본페이지 </h1>
 
 {{ request.user }}
 
     <script>
     $(document).ready(function () {
     $('#logout').click(function () {
-        $.get('accounts/v1/users/logout', {}, function(){
-            location.reload();
+        $.get('account/v1/logout/', {}, function(){
+            window.location.replace("{% url 'login' %}");
         })
     });
     });

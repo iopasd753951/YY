@@ -1,0 +1,39 @@
+{% extends "store/base.html" %}
+
+{% block body %}
+
+<div class="header">
+    <nav> class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+            <li> class="nav-item">
+                <a href="javascript:location.reload()" class="reload_cat"><img src='../../media/store/reload_cat.png' > </a>
+            </li>
+            <li>
+                <a class="home" href="{% url main %}"> 홈 </a>
+            <li>
+                <form action="/" method="GET" >
+                <input class="search_bar" name="search" type="text">
+                <button class="search_icon" type="submit" ><img src="../../media/store/search_icon.png"></button>
+                </form>
+            </li>
+            <li>
+                <a class="notice" href="{% notice %}" > <img src='../../media/store/ring_icon.png'> </a>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <button onclick="click_dropdown()" class="dropbtn"><img src="../../media/store/extend_icon.png"></button>
+                    <div id="dropdown" class="dropdown-content">
+                        <a href="{% url 'my_page' %}"> 마이페이지 </a>
+                        <a href="{% url 'reserve_list' %}">예약리스트보기</a>
+                        <p>누구누구님 입장중~</p>
+                        <a href="{% url 'logout' %}"> 로그아웃</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+</div>
+
+
+{% endblock %}

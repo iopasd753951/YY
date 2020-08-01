@@ -51,3 +51,9 @@ class UserLoginView(View):
 
         except KeyError:
             return HttpResponse(400)
+
+
+class UserLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return HttpResponse(200)

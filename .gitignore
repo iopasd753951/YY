@@ -209,3 +209,5 @@ dmypy.json
 static/font/
 
 **/migrations/
+
+media/

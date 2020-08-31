@@ -1,42 +1,41 @@
 {% extends "store/base.html" %}
 
-{% block body %}
+{% block header %}
 
 <div class="header">
-    <nav> class="navbar navbar-expand-sm bg-light">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="javascript:location.reload()" class="reload_cat"><img src='../../media/store/reload_cat.png' > </a>
-            </li>
-            <li class="nav-item">
-                <a class="home" href="{% url main %}"> 홈 </a>
-            <li class="nav-item">
-                <div class="search_container">
-                    <div>
-                        <input class="search_bar" name="search" type="text">
-                        <button class="search_icon"><img src="../../media/store/search_icon.png"></button>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="notice" href="{% notice %}" > <img src='../../media/store/ring_icon.png'> </a>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="dropbtn"><img src="../../media/store/extend_icon.png">
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'my_page' %}"> 마이페이지 </a>
-                        <a href="{% url 'reserve_list' %}">예약리스트보기</a>
-                        <p>누구누구님 입장중~</p>
-                        <a href="{% url 'logout' %}"> 로그아웃</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </nav>
+    <a href="javascript:location.reload()" class="reload_cat"><img src='/media/store/reload_cat.png' alt="reload_cat"> </a>
 
+    <a class="home" href="./main.html"> 홈 </a>
+
+    <div class="search_container">
+        <form action="/search" method="GET" >
+            <input class="search_bar" name="search" type="text">
+        </form>
+    </div>
+
+
+    <!-- href="{ notice } -->
+    <a class="notice" > <img src='/media/store/ring_icon.png' alt="ring_icon"> </a>
+
+    <div class="dropdown">
+        <button class="dropbtn"><img src="/media/store/extend_icon.png" alt="extend_icon">
+        </button>
+        <div class="dropdown-content">
+            <!-- href="{ url 'my_page' }" -->
+            <a> 마이페이지 </a>
+            <!-- href="{ url 'reserve_list' %}" -->
+            <a>예약리스트보기</a>
+            <p>누구누구님 입장중~</p>
+            <!-- href="{ url 'logout' %}" -->
+            <a> 로그아웃</a>
+        </div>
+    </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    document.getElementById("search").value
+</script>
 
 
 {% endblock %}

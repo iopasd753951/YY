@@ -1,0 +1,27 @@
+.list1{
+    display: flex;
+}
+
+.list2{
+    display: flex;
+}
+
+.hospital{
+    margin: auto;
+    margin-top: 200px;
+}
+
+.restaurant{
+    margin: auto;
+    margin-top: 200px;
+}
+
+.hotel{
+    margin: auto;
+    margin-top: 200px;
+}
+
+.cinema{
+    margin: auto;
+    margin-top: 200px;
+}

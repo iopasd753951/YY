@@ -3,7 +3,7 @@ from django.core.validators import MinLengthValidator
 
 
 class Accounts(models.Model):
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     name = models.CharField(validators=[MinLengthValidator(5)], max_length=255)
     password = models.CharField(validators=[MinLengthValidator(5)], max_length=255)
     phone = models.CharField(max_length=255)

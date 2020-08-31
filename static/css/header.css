@@ -3,6 +3,10 @@
     src: url("/static/font/HoonWhitecatR.ttf") format('truetype');
 }
 
+body, html {
+    margin: 0;
+}
+
 .header{
     width: 100%;
     height: 80px;
@@ -12,8 +16,8 @@
 	justify-content: space-between;
 }
 
-ul {
-	list-style: none;
+.navbar {
+    width: 100%;
 }
 
 a {
@@ -31,14 +35,19 @@ a {
     font-size: 30px;
 }
 
-.search_bar{
-    border-radius: 25px;
-    width: 100%;
-    height: 50px;
-    border: none;
+.search_container{
+    position: relative;
 }
 
-.search_icon{
+.search_bar{
+    border-radius: 25px;
+    width: 1500px;
+    height: 50px;
+    border: none;
+    background: #E7D1F5;
+}
+
+.search_img{
     width: 20px;
     height: 20px;
 }
@@ -54,8 +63,9 @@ a {
 }
 
 .dropdown .dropbtn{
-    width: 44px;
-    height: 8px;
+    margin-right: 50px;
+    width: 60px;
+    height: 15px;
 }
 
 .dropdown-content {

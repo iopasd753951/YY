@@ -57,3 +57,20 @@ class UserLogoutView(View):
     def get(self, request):
         logout(request)
         return HttpResponse(200)
+
+
+class UserMypageView(View):
+    def post(self, request):
+        data = json.loads(request.body)
+
+        if Accounts.objects.exists(email=data['email']):
+            Accounts(
+                password=data['password']
+            ).save()
+        return HttpResponse(status=200)
+
+    def get(self, request):
+        data = request.GET.get['email']
+        query_set = Accounts.objects.all()
+
+        return JsonResponse(list(query_set.values_list(email=data['email'])), status=200, safe=False)
